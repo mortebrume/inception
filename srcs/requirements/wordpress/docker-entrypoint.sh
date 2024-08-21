@@ -7,6 +7,7 @@ if [ ! -e index.php ] && [ ! -e wp-includes/version.php ]; then
 		chown www-data:www-data .
 	fi
 	wp core download
+	sleep 10
 	wp config create --dbname=${MYSQL_DATABASE} --dbuser=${MYSQL_USER} --dbpass=${MYSQL_PASSWORD} \
 		--dbhost=mariadb
 	wp core install --url=https://${DOMAIN_NAME}/wordpress --title=Inception --admin_user=${WP_ADMIN} \

@@ -15,11 +15,11 @@ ls:
 
 build: volumes
 	@echo "$(BLUE)██████████████████████ Building Images ███████████████████████$(RESET)"
-	docker-compose -f ./srcs/docker-compose.yml build
+	docker compose -f ./srcs/docker-compose.yml build
 
 up:
 	@echo "$(GREEN)██████████████████████ Running Containers ██████████████████████$(RESET)"
-	@docker-compose -f ./srcs/docker-compose.yml up -d
+	@docker compose -f ./srcs/docker-compose.yml up -d
 	@echo "$(RED)╔════════════════════════════║NOTE:║════════════════════════╗$(RESET)"
 	@echo "$(RED)║   $(BLUE) You can see The Containers logs using $(YELLOW)make logs        $(RED)║$(RESET)"
 	@echo "$(RED)╚═══════════════════════════════════════════════════════════╝$(RESET)"
@@ -27,7 +27,7 @@ up:
 
 logs:
 	@echo "$(GREEN)██████████████████████ Running Containers ██████████████████████$(RESET)"
-	@docker-compose -f ./srcs/docker-compose.yml logs
+	@docker compose -f ./srcs/docker-compose.yml logs
 
 
 status:
@@ -37,15 +37,15 @@ status:
 
 stop:
 	@echo "$(RED)████████████████████ Stoping Containers █████████████████████$(RESET)"
-	docker-compose -f ./srcs/docker-compose.yml stop
+	docker compose -f ./srcs/docker-compose.yml stop
 
 start:
 	@echo "$(RED)████████████████████ Starting Containers █████████████████████$(RESET)"
-	docker-compose -f ./srcs/docker-compose.yml start
+	docker compose -f ./srcs/docker-compose.yml start
 
 down:
 	@echo "$(RED)██████████████████ Removing All Containers ██████████████████$(RESET)"
-	docker-compose -f ./srcs/docker-compose.yml down -v
+	docker compose -f ./srcs/docker-compose.yml down -v
 
 reload: down rvolumes build up
 
